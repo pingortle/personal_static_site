@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= content_for(:title) || "Personal Static Site" %></title>
+    <title><%= content_for(:title) || "Retro Hacker Blog" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
@@ -13,14 +13,30 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-matrix-black text-matrix-green font-sans min-h-screen">
+    <div class="bg-matrix-rain bg-repeat min-h-screen">
+      <header class="bg-matrix-black bg-opacity-80 py-4">
+        <nav class="container mx-auto px-4">
+          <h1 class="text-4xl font-bold text-matrix-lightgreen">Retro Hacker Blog</h1>
+          <!-- Add navigation items here if needed -->
+        </nav>
+      </header>
+      <main class="container mx-auto mt-8 px-4 pb-12">
+        <div class="bg-matrix-black bg-opacity-80 p-6 rounded-lg shadow-lg">
+          <%= yield %>
+        </div>
+      </main>
+      <footer class="bg-matrix-black bg-opacity-80 py-4 mt-12">
+        <div class="container mx-auto px-4 text-center text-matrix-darkgreen">
+          <p>&copy; <%= Time.current.year %> Retro Hacker Blog. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
