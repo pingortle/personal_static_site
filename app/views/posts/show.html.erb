@@ -1,15 +1,13 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<div class="prose prose-invert prose-matrix-green max-w-none">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-matrix-darkgreen bg-opacity-30 mb-5 text-matrix-lightgreen font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
-    <%= render @post %>
+  <%= render @post %>
 
-    <%= link_to "Edit this post", edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to posts", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this post", @post, method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+  <div class="mt-6 space-x-4">
+    <%= link_to "Edit Transmission", edit_post_path(@post), class: "text-matrix-lightgreen hover:underline" %>
+    <%= link_to "Return to Transmissions", posts_path, class: "text-matrix-lightgreen hover:underline" %>
+    <%= button_to "Erase Transmission", @post, method: :delete, class: "text-matrix-lightgreen hover:underline bg-transparent border-none cursor-pointer", form: { data: { turbo_confirm: 'Are you sure you want to erase this transmission?' } } %>
   </div>
 </div>

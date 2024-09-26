@@ -1,8 +1,10 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing post</h1>
+<div class="prose prose-invert prose-matrix-green max-w-none">
+  <h1 class="text-3xl font-bold mb-6">Modify Transmission</h1>
 
   <%= render "form", post: @post %>
 
-  <%= link_to "Show this post", @post, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to posts", posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <div class="mt-6 space-x-4">
+    <%= link_to "View Transmission", @post, class: "text-matrix-lightgreen hover:underline" %>
+    <%= link_to "Return to Transmissions", posts_path, class: "text-matrix-lightgreen hover:underline" %>
+  </div>
 </div>
