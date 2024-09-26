@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+HOST=$1
+
+mkdir -p out
+cd out
+
+wget --reject-regex "(.*)\?(.*)" -FEmnH $HOST
