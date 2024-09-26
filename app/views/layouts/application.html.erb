@@ -22,9 +22,12 @@
   <body class="bg-matrix-black text-matrix-green font-sans min-h-screen">
     <div class="bg-matrix-rain bg-repeat min-h-screen">
       <header class="bg-matrix-black bg-opacity-80 py-4">
-        <nav class="container mx-auto px-4">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
           <h1 class="text-4xl font-bold text-matrix-lightgreen">Retro Hacker Blog</h1>
-          <!-- Add navigation items here if needed -->
+          <div class="space-x-4">
+            <%= link_to "Home", root_path, class: "text-matrix-green hover:text-matrix-lightgreen transition duration-300" %>
+            <%= link_to "Account", account_path, class: "text-matrix-green hover:text-matrix-lightgreen transition duration-300" %>
+          </div>
         </nav>
       </header>
       <main class="container mx-auto mt-8 px-4 pb-12">
