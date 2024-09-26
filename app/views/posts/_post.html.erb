@@ -1,7 +1,12 @@
-<div id="<%= dom_id post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= post.title %>
+<div id="<%= dom_id post %>" class="bg-matrix-darkgreen bg-opacity-20 border border-matrix-green rounded-lg p-4 mb-6">
+  <h2 class="text-2xl font-bold text-matrix-lightgreen mb-2"><%= post.title %></h2>
+  <div class="prose prose-invert prose-matrix-green max-w-none">
     <%= post.content %>
-  </p>
+  </div>
+  <div class="mt-4 text-sm text-matrix-darkgreen">
+    <span>Posted: <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+    <% if post.updated_at != post.created_at %>
+      <span class="ml-4">Updated: <%= post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
+    <% end %>
+  </div>
 </div>
