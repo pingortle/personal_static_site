@@ -18,9 +18,12 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   idle_timeout: 0
 
-development:
+development: &development
   <<: *default
   database: <%= Litesupport.root("development").join("data.sqlite3") %>
+
+static:
+  <<: *development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -37,4 +40,3 @@ test:
 production:
   <<: *default
   database: <%= Litesupport.root("production").join("data.sqlite3") %>
-

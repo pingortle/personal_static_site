@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+bundle install
+
+rake assets:clobber
+rake assets:precompile
+
+# Run the server in the static environment
+RAILS_ENV=static bundle exec rails server -p 3131 -b 0.0.0.0 -d
+
+# Create the output directory and enter it
+mkdir -p out
+cd out
+
+# Give the server a little time to come
+# alive - we'll get a "Connection refused"
+# error from wget otherwise
+sleep 5
+
+# Mirror the site to the 'out' folder, ignoring links with query params
+wget --reject-regex "(.*)\?(.*)" -FEmnH http://localhost:3131/
+
+# Kill the server
+xargs -I {} kill {} < tmp/pids/server.pid
+
+# Clean up the assets
+rake assets:clobber

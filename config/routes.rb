@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "accounts/show"
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get "sign_up", to: "registrations#new"
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
     resource :email_verification, only: [:show, :create]
     resource :password_reset, only: [:new, :edit, :create, :update]
   end
+  resource :account, only: [:show]
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
