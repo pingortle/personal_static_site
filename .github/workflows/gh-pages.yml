@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         run: |
           bin/generate-static https://personal-static-site-dawn-flower-4678.fly.dev/
       - name: Deploy 🚀
