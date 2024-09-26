@@ -3,7 +3,7 @@
   <div class="prose prose-invert prose-matrix-green max-w-none">
     <%= post.content %>
   </div>
-  <div class="mt-4 text-sm text-matrix-darkgreen">
+  <div class="mt-4 text-sm text-matrix-lightgreen opacity-70">
     <span>Posted: <%= post.created_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
     <% if post.updated_at != post.created_at %>
       <span class="ml-4">Updated: <%= post.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></span>
