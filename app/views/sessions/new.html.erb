@@ -1,30 +1,31 @@
-<p style="color: green"><%= notice %></p>
-<p style="color: red"><%= alert %></p>
+<div class="prose prose-invert prose-matrix-green max-w-none">
+  <% if notice %>
+    <p class="text-matrix-lightgreen mb-4"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="text-red-500 mb-4"><%= alert %></p>
+  <% end %>
 
-<h1>Sign in</h1>
+  <h1 class="text-3xl font-bold mb-6">Access the Matrix</h1>
 
-<%= form_with(url: sign_in_path) do |form| %>
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email, value: params[:email_hint], required: true, autofocus: true, autocomplete: "email" %>
+  <%= form_with(url: sign_in_path, class: "mb-6") do |form| %>
+    <div class="mb-4">
+      <%= form.label :email, class: "block text-matrix-lightgreen mb-2" %>
+      <%= form.email_field :email, value: params[:email_hint], required: true, autofocus: true, autocomplete: "email", class: "w-full p-2 bg-matrix-black text-matrix-green border border-matrix-green rounded focus:outline-none focus:ring-2 focus:ring-matrix-lightgreen" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :password, class: "block text-matrix-lightgreen mb-2" %>
+      <%= form.password_field :password, required: true, autocomplete: "current-password", class: "w-full p-2 bg-matrix-black text-matrix-green border border-matrix-green rounded focus:outline-none focus:ring-2 focus:ring-matrix-lightgreen" %>
+    </div>
+
+    <div>
+      <%= form.submit "Jack In", class: "bg-matrix-green text-matrix-black px-4 py-2 rounded hover:bg-matrix-lightgreen transition duration-300 cursor-pointer" %>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <%= link_to "Create New Identity", sign_up_path, class: "text-matrix-lightgreen hover:underline mr-4" %>
+    <%= link_to "Memory Retrieval", new_identity_password_reset_path, class: "text-matrix-lightgreen hover:underline" %>
   </div>
-
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password, required: true, autocomplete: "current-password" %>
-  </div>
-
-  <div>
-    <%= form.submit "Sign in" %>
-  </div>
-<% end %>
-
-<br>
-
-
-<br>
-
-<div>
-  <%= link_to "Sign up", sign_up_path %> |
-  <%= link_to "Forgot your password?", new_identity_password_reset_path %>
 </div>
