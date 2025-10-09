@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :set_current_request_details
   before_action :authenticate
 
-  def self.skip_authentication
-    skip_before_action :authenticate
+  def self.skip_authentication(options = {})
+    skip_before_action :authenticate, options
   end
 
   private
