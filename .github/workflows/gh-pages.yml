@@ -15,7 +15,7 @@ jobs:
         run: |
           bin/generate-static https://personal-static-site-dawn-flower-4678.fly.dev/
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.6.4
+        uses: JamesIves/github-pages-deploy-action@v4.7.2
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: out # The folder the action should deploy.
